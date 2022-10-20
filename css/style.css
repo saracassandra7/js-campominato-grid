@@ -7,3 +7,28 @@
 body{
   background-color: cadetblue;
 }
+
+.main-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container{
+  width: 600px;
+  height: 600px;
+  background-color: blueviolet;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.square{
+  width: calc(100% / 10);
+  height: calc((100% / 10));
+  border: 2px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

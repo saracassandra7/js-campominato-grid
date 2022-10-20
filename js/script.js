@@ -6,8 +6,10 @@ Quando l’utente clicca su ogni cella, la cella cliccata si colora di azzurro e
 
 const container = document.querySelector('.container');
 const elementsPerRow = 10;
+const start =document.getElementById('btn-start');
+let square;
 
-document.getElementById('btn-start').addEventListener('click', function(){
+start.addEventListener('click', function(){
   container.innerHTML = ' ';
   init(elementsPerRow);
 })
@@ -15,6 +17,7 @@ document.getElementById('btn-start').addEventListener('click', function(){
 function init (numElements){
   //elevo al quadrato il numero di elementi per riga
   const totSquares = Math.pow(numElements, 2); 
+  console.log(totSquares);
 
   //faccio un ciclo che mi stampa tutti i quadrati, utilizzando la funzione createSquare
   for (let i = 0; i<totSquares; i++){
@@ -27,10 +30,27 @@ function init (numElements){
 function createSquare(idSquare){
   //creo quadratino
   const square = document.createElement('div');
+
   //gli aggiungo la classe
   square.className = 'square';
+
   //ci scrivo dentro il numero
-  square.innerHTML = idSquare +1;
+  square.innerHTML = idSquare + 1;
+
+  // creo proprietà custom di square in cui salvo il numero
+  square.IdElement = idSquare + 1;
+
+  //al click del quadratino si colora di azzurro e scrive in console il numero
+  square.addEventListener('click', clickSquare);
+
   //lo appendo al container
   container.append(square);
+
+}
+
+//funzione che colora il quadratino di azzurro e scrive in console in numero
+function clickSquare(){
+  console.log(this.idElement); //non funziona :(
+  this.innerHTML = this.idElement;
+  this.classList.add('active');
 }

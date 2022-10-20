@@ -50,7 +50,7 @@ function createSquare(idSquare){
 
 //funzione che colora il quadratino di azzurro e scrive in console in numero
 function clickSquare(){
-  console.log(this.idElement); //non funziona :(
-  this.innerHTML = this.idElement;
+  /*console.log(this.idElement); 
+  this.innerHTML = this.idElement; -----> non funziona :( */
   this.classList.add('active');
 }
